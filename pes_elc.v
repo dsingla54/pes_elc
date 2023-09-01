@@ -1,4 +1,4 @@
-module iiitb_elc (request_floor, in_current_floor, clk, reset, complete, direction, 
+module pes_elc (request_floor, in_current_floor, clk, reset, complete, direction, 
 over_time, over_weight, weight_alert, door_alert, out_current_floor) ;
 
 //input pins
