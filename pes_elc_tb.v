@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module pres_elc;
+module pes_elc;
 
 reg [7:0]request_floor;
 reg [7:0]in_current_floor;
