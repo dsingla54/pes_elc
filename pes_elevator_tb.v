@@ -14,7 +14,7 @@ wire door_alert;
 wire weight_alert;
 wire [7:0] out_current_floor;
 
-pes_elc UUT(
+pes_elevator UUT(
 .request_floor (request_floor),
 .in_current_floor (in_current_floor),
 .clk(clk),
