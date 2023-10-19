@@ -1,4 +1,6 @@
 # pes_elevator 
+## Brief On Elevator Controller
+The elevator controller is the central brain of an elevator system, responsible for overseeing and managing its various functions. It employs sophisticated control algorithms to prioritize and respond to user requests, such as calling the elevator from specific floors or selecting destinations within the car. The controller's primary goal is to optimize the elevator's operation, reducing passenger wait times and travel times while minimizing energy consumption. It also plays a crucial role in ensuring safety, constantly monitoring various sensors, and employing safety mechanisms like emergency stops and door protections. Moreover, the controller interfaces with users through a user-friendly control panel, usually present both inside the elevator car and in the building's lobby, allowing passengers to input their desired floor selections. Additionally, the controller has the capability to log usage data, aiding in maintenance and diagnostics, helping technicians detect and address issues promptly. In emergency situations, such as fire alarms or power failures, the controller follows predefined protocols to ensure passenger safety.
 ## Iverilog simulation
 Commands
 ```
