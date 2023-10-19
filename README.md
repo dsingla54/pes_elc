@@ -1,6 +1,7 @@
 # pes_elevator 
 ## Brief On Elevator Controller
 The provided Verilog code presents the fundamental structure of an elevator controller module, which plays a critical role in managing the operation of an elevator system. Elevator controllers are essential components in modern buildings, ensuring efficient transportation between different floors. This controller module processes a set of input signals, including requests from passengers, the current floor, clock pulses, reset commands, and signals indicating the duration the elevator door has been open and weight exceeding the limit. It uses these inputs to determine the elevator's behavior. When reset, the controller initializes the current floor. During normal operation, it evaluates floor requests, moves the elevator in the appropriate direction, and updates the current floor. It also monitors the door's open duration and the weight inside the elevator to trigger alerts when necessary. The controller then produces output signals, reflecting the elevator's direction, operational status, door alerts, weight alerts, and the current floor, which are crucial for passenger safety and efficient building transportation. This Verilog module is a digital representation of the core logic that governs elevator behavior, an integral part of vertical transportation systems in modern structures.
+
 **Illustration of How the elevator controller looks** ( Final Schemetic May Vary)
 ![image](https://github.com/dsingla54/pes_elevator/assets/139515749/2b725fa9-34af-45f1-a052-152039b44381)
 
