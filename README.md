@@ -111,4 +111,24 @@ make
 make test
 ```
 ## OpenLANE Flow
+- First create a folder in you Openlane/design directory and save your design there.
+![1](https://github.com/dsingla54/pes_elevator/assets/139515749/f62398b0-2b68-444b-b340-281ff12d48c7)
+
+
+- Then create a folder named 'src' and save the main verilog code in that folder too and also save it outside the folder as well , with the verilog code also saved
+  ![3](https://github.com/dsingla54/pes_elevator/assets/139515749/c8d2b83b-b078-41fb-bd6d-88a6b573d275)
+
+```
+sky130_fd_sc_hd__fast.lib
+sky130_fd_sc_hd__slow.lib
+sky130_fd_sc_hd__typical.lib
+```
+- create a config.json file outside your src folder.
+- all the files are present at the top
+![2](https://github.com/dsingla54/pes_elevator/assets/139515749/195c1e73-4765-46e6-917e-5cf2cb3f4552)
+
+![3](https://github.com/kamildamudi21/pes_ic/assets/141449459/57cc6bd6-85ca-4f1a-8b4a-16a7d67a681e)
+Now use command
+``` gedit config.json ```
+![4](https://github.com/dsingla54/pes_elevator/assets/139515749/82f1833b-23d8-465e-8ca8-33b4fc29ca8e)
 
