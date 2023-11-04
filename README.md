@@ -131,3 +131,141 @@ Now use command
 ``` gedit config.json ```
 ![4](https://github.com/dsingla54/pes_elevator/assets/139515749/82f1833b-23d8-465e-8ca8-33b4fc29ca8e)
 
+### Interactive OpenLane flow
+Open terminal in home directory and then type the following:
+
+
+```
+cd OpenLane/ 
+sudo make mount
+```
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/107a11b0-e74f-4eb1-a256-ca3bfedd5ddd)
+ 
+```
+./flow.tcl -interactive
+package require openlane 0.9
+```
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/f9cc1697-531a-4daa-b523-4a7f16e14183)
+
+```
+prep -design pes_elevator
+```
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/1ef448b2-9bee-40db-ba77-9bb0ba89ec93)
+
+## Commands That we are gonna use 
+```
+run_synthesis
+run_floorplan
+run_placement
+run_cts
+run_routing
+run_magic
+run_magic_spice_export
+run_magic_drc
+run_netgen
+run_magic_antenna_check
+```
+## Synthesis stage:
+Synthesis is a fundamental stage in the digital design flow. It takes an abstract hardware description and generates a netlist consisting of logical gates and flip-flops that represent the desired functionality of the design.
+
+
+
+
+- Area report
+
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/05cf202c-8dc7-47ca-8f8f-d10b5ec87664)
+
+## Floorplan stage:
+
+The floorplan stage in digital integrated circuit design involves creating a high-level layout for the chip, defining the core area, the locations of I/O pads, and other critical structures. It establishes the overall physical framework for the chip design and serves as a foundation for subsequent stages such as placement and routing. During the floorplan stage, designers make decisions about the chip's dimensions, aspect ratio, power grid, and other essential aspects to meet the project's requirements. The goal is to efficiently allocate space for various components while adhering to design constraints, ultimately ensuring that the chip will meet its performance, power, and area goals.
+
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/062d68c5-a1ba-4642-a7e9-9c42692a163d)
+
+```
+magic -T /home/dhruv/OpenLane/pdk/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def pes_elevator.def &
+```
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/1ea87b9c-6a59-446a-b7a6-678309fc3f63)
+**Zoomed** 
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/804f0c61-c503-47fe-a68b-acc52c3f95bf)
+
+## Placement stage:
+
+The placement stage in digital integrated circuit design involves determining the physical positions of synthesized logic cells on the chip's layout. This critical step aims to optimize the arrangement of cells to minimize wirelength, meet design constraints, and achieve desired performance. Placement typically involves global placement, which provides a rough layout, followed by legalization to ensure cells conform to design rules and spacing requirements. The outcome of this stage is a physical placement file that specifies the coordinates of each cell, serving as the basis for subsequent routing and design verification steps. Efficient placement is essential for optimizing area, power, and signal timing in the final chip design.
+
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/b41d0cfe-a998-47c4-b5cd-caba2ec54d3d)
+
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/36bebc80-cbba-4f0f-8ff0-374625677479)
+
+```
+magic -T /home/dhruv/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def pes_elevator.def &
+```
+
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/1ea87b9c-6a59-446a-b7a6-678309fc3f63)
+
+- Placement Zoomed.
+
+**Zoomed** 
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/804f0c61-c503-47fe-a68b-acc52c3f95bf)
+
+## CTS(Clock Tree Synthesis) Stage:
+
+
+
+The Clock Tree Synthesis (CTS) phase's primary objective is to establish a clock distribution network guaranteeing dependable and synchronized clock signals for all the sequential components, such as flip-flops, within the chip. This phase encompasses the subsequent pivotal procedures:
+
+- Buffer Insertion: In the CTS procedure, buffers are incorporated into the clock network to achieve uniform distribution of the clock signal. These buffers play a crucial role in mitigating clock skew, thereby ensuring simultaneous delivery of clock signals to all sections of the chip.
+
+- Clock Tree Construction: The clock tree is built by linking the buffers in a hierarchical manner, extending from the global clock source (such as a PLL or external input) to the individual leaf-level cells across the entire chip.
+
+- Skew Minimization: Within the CTS phase, the objective is to reduce clock skew, which represents the disparity in clock signal arrival times at various locations in the design. By minimizing skew, the aim is to guarantee that all registers observe the same clock edge concurrently, a critical requirement for the effective operation of the circuit.
+- 
+- Power Optimization: CTS also involves power optimization techniques to reduce dynamic and static power consumption in the clock distribution network.
+
+- Constraints and Timing: It takes into consideration the design constraints related to clock paths, such as clock-to-q requirements, setup and hold times, and other timing considerations.
+
+- Clock Gating: Clock gating cells may be inserted in the clock tree to save power when certain parts of the chip are not in use, and the clock can be temporarily disabled.
+
+- Command ``` run_cts```
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/dbfe705c-9786-4729-809d-b88ea30c6316)
+
+<br>
+- report
+  
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/0646077d-e952-40b1-840b-3e0ca936e1e6)
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/2743db56-8d9f-49b1-9a33-4d476ed510f9)
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/18bfb907-c6a2-4b3c-a23b-aaec23460bb5)
+## Routing stage:
+
+- The routing stage is responsible for creating the physical wire connections between the placed cells on the chip layout. This involves determining the paths for signal wires, power distribution, and clock signals, while adhering to design rules, avoiding congestion, and optimizing for various factors such as wirelength, signal delay, and power consumption.
+
+- Use Command ``` run_routing ```
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/3f31f44f-9e36-4a4f-8780-fb6c09c10865)
+```
+magic -T /home/dhruv/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def pes_elevator.def &
+```
+
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/190f41cb-930c-40e0-82fb-68c176b79930)
+
+
+- **Router zoomed**
+  
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/9d70210e-1450-44b8-930a-7cbba4466de7)
+
+
+
+- Power report
+
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/3de14438-b5c5-4ac6-a595-fad47349384a)
+
+- Skew report
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/8050b9f2-0295-49cd-9ef8-c20548ce5f9f)
+
+- Area and Summary report
+- ![image](https://github.com/dsingla54/pes_elevator/assets/139515749/a601704b-b754-4c1a-b3da-27c8fb74fd6c)
+
+**Summary**
+- Area = 1430 um2
+- Internal Power = 1.37e-05  W
+- Switching Power = 5.40e-06 
+- Leakage Power =  6.47e-10
+- Total Power =  1.91e-05
