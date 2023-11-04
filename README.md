@@ -1,4 +1,9 @@
 # pes_elevator 
+# Content
+- [Steps on Which we would be Working in this ](#Steps-on-Which-we-would-be-Working-in-this )
+- [RTL and GLS](#RTL-and-GLS)
+- [Installation of ngspice magic and OpenLANE](#installation-of-ngspice-magic-and-openlane)
+
 # Steps on Which we would be Working in this 
 ![image](https://github.com/dsingla54/pes_elevator/assets/139515749/07cf0d73-6197-4580-9718-92785e2342c4)
 **As per Shown RTL(Test bench , Verification) is done and sent to next step Synthesis after that the final stage GLS where we simulate and get the netlist**
@@ -9,7 +14,7 @@
 ### *Illustration of How the elevator controller would look* ( Final Schemetic May Vary)
 ![image](https://github.com/dsingla54/pes_elevator/assets/139515749/2b725fa9-34af-45f1-a052-152039b44381)
 
-
+# RTL and GLS
 ## Iverilog simulation
 Commands
 ```
@@ -44,3 +49,65 @@ show
 
 **Verification after GLS**
 ![image](https://github.com/dsingla54/pes_elc/assets/139515749/1e7d09e8-1033-4dc5-8c54-9c0d84a879d4)
+
+## Installation of ngspice magic and OpenLANE
+
+**ngspice**
+- Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory
+```
+cd $HOME
+sudo apt-get install libxaw7-dev
+tar -zxvf ngspice-41.tar.gz
+cd ngspice-41
+mkdir release
+cd release
+../configure  --with-x --with-readline=yes --disable-debug
+sudo make
+sudo make install
+```
+
+**magic**
+```
+sudo apt-get install m4
+sudo apt-get install tcsh
+sudo apt-get install csh
+sudo apt-get install libx11-dev
+sudo apt-get install tcl-dev tk-dev
+sudo apt-get install libcairo2-dev
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
+sudo apt-get install libncurses-dev
+git clone https://github.com/RTimothyEdwards/magic
+cd magic
+./configure
+sudo make
+sudo make install
+```
+
+**OpenLANE**
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install -y build-essential python3 python3-venv python3-pip make git
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo reboot 
+# After reboot
+docker run hello-world (should show you the output under 'Example Output' in https://hub.docker.com/_/hello-world)
+
+- To install the PDKs and Tools
+cd $HOME
+git clone https://github.com/The-OpenROAD-Project/OpenLane
+cd OpenLane
+make
+make test
+```
+
