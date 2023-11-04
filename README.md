@@ -129,7 +129,8 @@ sky130_fd_sc_hd__typical.lib
 
 Now use command
 ``` gedit config.json ```
-![4](https://github.com/dsingla54/pes_elevator/assets/139515749/82f1833b-23d8-465e-8ca8-33b4fc29ca8e)
+![image](https://github.com/dsingla54/pes_elevator/assets/139515749/20a04948-57ab-44a5-ba9a-1c6f37eea7bd)
+
 
 ### Interactive OpenLane flow
 Open terminal in home directory and then type the following:
