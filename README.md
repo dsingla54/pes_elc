@@ -3,7 +3,7 @@
 - [Steps on Which we would be Working in this ](#Steps-on-Which-we-would-be-Working-in-this )
 - [RTL and GLS](#RTL-and-GLS)
 - [Installation of ngspice magic and OpenLANE](#installation-of-ngspice-magic-and-openlane)
-
+- [OpenLANE Flow](#openlane-flow)
 # Steps on Which we would be Working in this 
 ![image](https://github.com/dsingla54/pes_elevator/assets/139515749/07cf0d73-6197-4580-9718-92785e2342c4)
 **As per Shown RTL(Test bench , Verification) is done and sent to next step Synthesis after that the final stage GLS where we simulate and get the netlist**
@@ -110,4 +110,5 @@ cd OpenLane
 make
 make test
 ```
+## OpenLANE Flow
 
